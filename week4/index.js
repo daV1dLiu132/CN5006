@@ -36,6 +36,7 @@ app.get('/GetStudentid/:id',(req,res)=>{
         'request Method':req.method,'studentdata':JSON.parse(data)});
     });
 })
+<<<<<<< HEAD
 
 app.get('/studentinfo',function(req,res)
 {
@@ -54,3 +55,5 @@ app.post('/submit-data',function(req,res){
         }
     });
 });
+=======
+>>>>>>> 44810b60c4a995d3d8d1ae1177eccf06518fa39b
