@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Hook_ControlledButtionState from './Counter';
+import EmojeeCounter from './EmojiCounter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.Fragment>
     <Hook_ControlledButtionState />
+    <EmojeeCounter pic='Love'/>
+    <EmojeeCounter pic='sad'/>
+    <EmojeeCounter pic='Like'/>
+
   </React.Fragment>,
   document.getElementById('root')
 );

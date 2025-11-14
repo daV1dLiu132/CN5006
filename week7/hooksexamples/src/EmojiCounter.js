@@ -1,0 +1,33 @@
+import Love from "./Love.png"
+import Sad from "./sad.png"
+import Like from "./like.png"
+import React, { useState,useEffect } from "react";
+function EmojeeCounter(props){
+    console.log("pic is",props.pic)
+    const[pic, setPic]=useState(Love)
+    const [count,setCount]=useState(0)
+
+    useEffect( ()=>{
+        console.log("function called", props.pic)
+        if(props.pc==="Love")
+            setPic(Love)
+        else if (props.pic==="like")
+            setPic(Like)
+        else if (props.pic==="sad")
+            setPic(Sad)
+    })
+    const ClickHandle=() =>
+        {
+        setCount(count+1)
+    }
+return(
+    <div className="App">
+        <p>{props.pic}<span></span>
+        <button onClick={ClickHandle}>{count}
+            <imp src={pic} alt=""/>
+            </button>
+            </p>
+    </div>
+)
+}
+export default EmojeeCounter;
