@@ -24,7 +24,7 @@ return(
     <div className="App">
         <p>{props.pic}<span></span>
         <button onClick={ClickHandle}>{count}
-            <imp src={pic} alt=""/>
+            <img src={pic} alt=""/>
             </button>
             </p>
     </div>

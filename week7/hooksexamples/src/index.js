@@ -12,7 +12,7 @@ root.render(
     <Hook_ControlledButtionState />
     <EmojeeCounter pic='Love'/>
     <EmojeeCounter pic='sad'/>
-    <EmojeeCounter pic='Like'/>
+    <EmojeeCounter pic='like'/>
 
   </React.Fragment>,
   document.getElementById('root')
