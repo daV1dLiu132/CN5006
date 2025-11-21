@@ -1,6 +1,6 @@
 mongoose = require('mongoose');
 //app = express();
-const MONGO_URI = 'mongodb+srv://admin:<db_password>@cluster0.1mwy48j.mongodb.net/';
+const MONGO_URI = 'mongodb+srv://admin:admin@cluster0.1mwy48j.mongodb.net/';
 mongoose.connect(MONGO_URI, {useUnifiedTopology: true,useNewUrlParser: true})
 ; const db = mongoose.connection;
 db.on('error', function(err)
@@ -16,13 +16,10 @@ type: String, required: true
 },
 age: Number, Gender:String, Salary:Number
 });
-// creating model named as modelname with collection named as personCo
-llection
-const person_doc = mongoose.model('modelname', PersonScheme,'personCollectio
-n');
+// creating model named as modelname with collection named as personCollection
+const person_doc = mongoose.model('modelname', PersonScheme,'personCollection');
 // creating a single document
-const doc1 = new person_doc({ name: 'Jacky',age:362,Gender:"Male",Salary:3
-456 }
+const doc1 = new person_doc({ name: 'Yousuf',age:44,Gender:"Male",Salary:3456 }
 );
 // adding one document in the collection
 doc1
@@ -33,3 +30,15 @@ doc1
  .catch((err) => {
  console.error(err);
  });
+
+manypersons=[{ name: 'Simon', age:42, Gender:"Male",Salary:3456}
+    ,{ name: 'Neesha', age:23, Gender:"Female",Salary:1000}
+    ,{ name: 'Mary', age:27, Gender:"Female",Salary:5402}
+    ,{ name: 'Mike', age:40, Gender:"Male",Salary:4519}
+]
+person_doc.insertMany(manypersons).then(function(){
+    console.log("Data inserted")
+})
+.catch(function(error){
+    console.log(error)
+});
