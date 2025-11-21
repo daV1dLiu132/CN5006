@@ -8,13 +8,13 @@ import EmojeeCounter from './EmojiCounter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.Fragment>
+  <React.StrictMode>
     <Hook_ControlledButtionState />
     <EmojeeCounter pic='Love'/>
     <EmojeeCounter pic='sad'/>
     <EmojeeCounter pic='like'/>
 
-  </React.Fragment>,
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

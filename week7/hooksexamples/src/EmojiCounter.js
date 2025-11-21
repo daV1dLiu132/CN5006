@@ -2,6 +2,7 @@ import Love from "./Love.png"
 import Sad from "./sad.png"
 import Like from "./like.png"
 import React, { useState,useEffect } from "react";
+import App from './App'
 function EmojeeCounter(props){
     console.log("pic is",props.pic)
     const[pic, setPic]=useState(Love)
