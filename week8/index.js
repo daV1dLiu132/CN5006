@@ -19,8 +19,14 @@ age: Number, Gender:String, Salary:Number
 // creating model named as modelname with collection named as personCollection
 const person_doc = mongoose.model('modelname', PersonScheme,'personCollection');
 // creating a single document
-const doc1 = new person_doc({ name: 'Jacky',age:362,Gender:"Male",Salary:3
-456 }
-// adding one document in the collection
 
 
+// delete documents where age >= 25
+person_doc.deleteMany({ age: { $gte: 25 } })
+    .exec()
+    .then(docs => {
+        console.log("deleted documents are:", docs);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
