@@ -5,15 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Hook_ControlledButtionState from './Counter';
 import EmojeeCounter from './EmojiCounter';
+import WeatherMoodWidget from './WeatherMoodWidget';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Hook_ControlledButtionState />
-    <EmojeeCounter pic='Love'/>
-    <EmojeeCounter pic='sad'/>
-    <EmojeeCounter pic='like'/>
-
+    <WeatherMoodWidget weather="Sunny" />
+    <WeatherMoodWidget weather="Rainy" />
+    <WeatherMoodWidget weather="Cloudy" />
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -22,3 +21,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 ServiceWorker.unregister();
+
+
