@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 console.log(` Mongoose installed version: ${mongoose.version}`);
-const MONG_URI = process.env.MONG_URI || 'mongodb+srv://admin:admin@cluster0.1mwy48j.mongodb.net/';
+const MONG_URI = process.env.MONG_URI || 'mongodb+srv://admin:admin@cluster0.1mwy48j.mongodb.net/library';
 async function connectDB() {
  try {
  await mongoose.connect(MONG_URI);
