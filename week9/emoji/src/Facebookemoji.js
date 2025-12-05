@@ -8,7 +8,7 @@ import happy from './happy.png'
 class FacebookEmojiCounter extends React.Component
 {
     constructor(props){
-        super(props);
+        super(props);   
         this.state = {number : 0};
         this.increment = this.increment.bind(this);
         this.pic=null
