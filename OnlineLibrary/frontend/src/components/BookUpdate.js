@@ -1,52 +1,43 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {useParams} from "react-router-dom";
-function Book_UpDateForm(props){
-    const [state, setState] = useState({
-        booktitle: "",
-        author: "",
-        formate: "",
-        Topic:"",
-        PubYear:1990,
+import { useParams } from "react-router-dom";
+
+export default function Book_UpDateForm() {
+  let url = "http://localhost:5000/";
+  let params = useParams();
+
+  const [state, setState] = useState({
+    booktitle: "",
+    author: "",
+    formate: "",
+    Topic: "",
+    PubYear: 1990,
+  });
+
+  useEffect(() => {
+    axios.get(url + "getbook/" + params.id).then((res) => {
+      setState(res.data);
     });
+  }, [params.id]);
 
-    let url="http://;pca;hpst:5000/"
-    let params = useParams();
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setState({ ...state, [e.target.name]: value });
+  };
 
-    const handlechange = (e) => {
-        const value = e.target.value;
-        setState({
-            ...state,
-            [e.target.name]: value,
-        });
-    };
+  const OnSubmit = (e) => {
+    e.preventDefault();
+    axios.post(url + "updatebook/" + params.id, state);
+  };
 
-    useEffect(()=> {
-        axios.get('http://localhost:5000/getbook/,params.id')
-        .then(res => {
-            console.log("update fun"+res.data)
-            setState(res.data)
-        })
-
-        .catch(err => {
-            console.log("error has occured")
-        })
-    },[]);
-
-    return(
-        <div style={{marginTop: 10}}>
-            <h3>Update Book Id: {props.match.params.id}</h3>
-            <form onSubmit={onSubmit} method="Post">
-                <div className="form-group">
-                    <label>Book Title: </label>
-                    <input className-"form-control" type="text" name="booktitle" value={state.booktitle} onChange={handleChange} />
-                </div>
-
-                <div className="form-group">
-                    <label>Book Authors: </label>
-                    <input className="form-control" name="author" value={state.author} onChange={handleChange} />
-                </div>
-            </form>
-        </div>
-    )
+  return (
+    <div>
+      <h3>Update Book</h3>
+      <form onSubmit={OnSubmit}>
+        <input name="booktitle" value={state.booktitle} onChange={handleChange} />
+        <input name="author" value={state.author} onChange={handleChange} />
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  );
 }
